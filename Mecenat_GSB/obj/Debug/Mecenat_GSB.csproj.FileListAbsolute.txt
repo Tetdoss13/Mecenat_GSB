@@ -2,9 +2,10 @@ C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\bin\Debug\Mecenat_GSB.
 C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\bin\Debug\Mecenat_GSB.exe
 C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\bin\Debug\Mecenat_GSB.pdb
 C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\obj\Debug\Mecenat_GSB.csprojAssemblyReference.cache
-C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\obj\Debug\Mecenat_GSB.Form1.resources
 C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\obj\Debug\Mecenat_GSB.Properties.Resources.resources
 C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\obj\Debug\Mecenat_GSB.csproj.GenerateResource.cache
 C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\obj\Debug\Mecenat_GSB.csproj.CoreCompileInputs.cache
 C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\obj\Debug\Mecenat_GSB.exe
 C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\obj\Debug\Mecenat_GSB.pdb
+C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\obj\Debug\Mecenat_GSB.PageAuthentification.resources
+C:\Users\erwan.bauer\source\repos\Mecenat_GSB\Mecenat_GSB\obj\Debug\Mecenat_GSB.PageEnregistrement.resources
