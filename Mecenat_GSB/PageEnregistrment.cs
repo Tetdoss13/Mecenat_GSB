@@ -10,12 +10,17 @@ using System.Windows.Forms;
 
 namespace Mecenat_GSB
 {
-    public partial class Form1 : Form
+    public partial class PageEnregistrement : Form
     {
-        public Form1()
+        public PageEnregistrement()
         {
             InitializeComponent();
         }
 
+        private void btn_connexion_Click(object sender, EventArgs e)
+        {
+            new PageAuthentification().Show();
+            this.Hide();
+        }
     }
 }
