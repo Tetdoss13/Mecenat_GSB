@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PageAuthentification));
             this.btn_connexion = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbAff = new System.Windows.Forms.Label();
             this.cbx_mdp = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,7 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dg_authentification = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_authentification)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_connexion
@@ -58,6 +61,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.lbAff);
             this.panel1.Controls.Add(this.cbx_mdp);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -72,6 +76,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(571, 328);
             this.panel1.TabIndex = 1;
+            // 
+            // lbAff
+            // 
+            this.lbAff.AutoSize = true;
+            this.lbAff.Location = new System.Drawing.Point(17, 305);
+            this.lbAff.Name = "lbAff";
+            this.lbAff.Size = new System.Drawing.Size(35, 13);
+            this.lbAff.TabIndex = 9;
+            this.lbAff.Text = "label6";
             // 
             // cbx_mdp
             // 
@@ -170,19 +183,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Authentification";
             // 
+            // dg_authentification
+            // 
+            this.dg_authentification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_authentification.Location = new System.Drawing.Point(554, 297);
+            this.dg_authentification.Name = "dg_authentification";
+            this.dg_authentification.Size = new System.Drawing.Size(234, 141);
+            this.dg_authentification.TabIndex = 9;
+        
+            // 
             // PageAuthentification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dg_authentification);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PageAuthentification";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Page d\'authentification";
+            this.Load += new System.EventHandler(this.PageAuthentification_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_authentification)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,6 +225,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox cbx_mdp;
+        private System.Windows.Forms.DataGridView dg_authentification;
+        private System.Windows.Forms.Label lbAff;
     }
 }
 
