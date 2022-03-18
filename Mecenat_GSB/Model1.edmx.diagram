@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="05ea379b8bba435ca63ffd96da62f273" Name="Diagram1">
+        <EntityTypeShape EntityType="BDD_MECENATModel1.ASSOCIATION" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_MECENATModel1.CONTRAT_D_AIDE" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_MECENATModel1.MECENAT" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_MECENATModel1.MISSION" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_MECENATModel1.PAYS" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_MECENATModel1.SERVICE" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_MECENATModel1.TRACEINTERVENTION" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_MECENATModel1.UTILISATEUR" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_ASSOCIATION_MISSION" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_ASSOCIATION_PAYS" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_CONTRAT_D_AIDE_ASSOCIATION" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_TRACEINTERVENTION_ASSOCIATION" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_CONTRAT_D_AIDE_MECENAT" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_TRACEINTERVENTION_CONTRAT_D_AIDE" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_MECENAT_PAYS" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_TRACEINTERVENTION_MECENAT" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_UTILISATEUR_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_MECENATModel1.FK_TRACEINTERVENTION_UTILISATEUR" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

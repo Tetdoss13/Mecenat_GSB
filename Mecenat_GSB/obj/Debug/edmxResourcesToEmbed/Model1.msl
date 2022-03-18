@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDD_MECENATModel1StoreContainer" CdmEntityContainer="BDD_MECENATEntities1">
+    <EntitySetMapping Name="ASSOCIATION">
+      <EntityTypeMapping TypeName="BDD_MECENATModel1.ASSOCIATION">
+        <MappingFragment StoreEntitySet="ASSOCIATION">
+          <ScalarProperty Name="NUM_ASSOCIATION" ColumnName="NUM_ASSOCIATION" />
+          <ScalarProperty Name="NUM_PAYS" ColumnName="NUM_PAYS" />
+          <ScalarProperty Name="NUM_MISSION" ColumnName="NUM_MISSION" />
+          <ScalarProperty Name="NOM_ASSOCIATION" ColumnName="NOM_ASSOCIATION" />
+          <ScalarProperty Name="NOM_RESPONSABLE_ASSOCIATION" ColumnName="NOM_RESPONSABLE_ASSOCIATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTRAT_D_AIDE">
+      <EntityTypeMapping TypeName="BDD_MECENATModel1.CONTRAT_D_AIDE">
+        <MappingFragment StoreEntitySet="CONTRAT_D_AIDE">
+          <ScalarProperty Name="NUM_CONTRAT" ColumnName="NUM_CONTRAT" />
+          <ScalarProperty Name="NUM_ASSOCIATION" ColumnName="NUM_ASSOCIATION" />
+          <ScalarProperty Name="NUM_MECENAT" ColumnName="NUM_MECENAT" />
+          <ScalarProperty Name="BUDGET_PREVISIONNEL_CONTRAT" ColumnName="BUDGET_PREVISIONNEL_CONTRAT" />
+          <ScalarProperty Name="BUDGET_REEL_CONTRAT" ColumnName="BUDGET_REEL_CONTRAT" />
+          <ScalarProperty Name="DATE_CONTRAT" ColumnName="DATE_CONTRAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MECENAT">
+      <EntityTypeMapping TypeName="BDD_MECENATModel1.MECENAT">
+        <MappingFragment StoreEntitySet="MECENAT">
+          <ScalarProperty Name="NUM_MECENAT" ColumnName="NUM_MECENAT" />
+          <ScalarProperty Name="NUM_PAYS" ColumnName="NUM_PAYS" />
+          <ScalarProperty Name="LIBELLE_MECENAT" ColumnName="LIBELLE_MECENAT" />
+          <ScalarProperty Name="DATE_PROPOSITION" ColumnName="DATE_PROPOSITION" />
+          <ScalarProperty Name="DATE_RETENUE" ColumnName="DATE_RETENUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MISSION">
+      <EntityTypeMapping TypeName="BDD_MECENATModel1.MISSION">
+        <MappingFragment StoreEntitySet="MISSION">
+          <ScalarProperty Name="NUM_MISSION" ColumnName="NUM_MISSION" />
+          <ScalarProperty Name="LIBELLE_MISSION" ColumnName="LIBELLE_MISSION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAYS">
+      <EntityTypeMapping TypeName="BDD_MECENATModel1.PAYS">
+        <MappingFragment StoreEntitySet="PAYS">
+          <ScalarProperty Name="NUM_PAYS" ColumnName="NUM_PAYS" />
+          <ScalarProperty Name="NOM_PAYS" ColumnName="NOM_PAYS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICE">
+      <EntityTypeMapping TypeName="BDD_MECENATModel1.SERVICE">
+        <MappingFragment StoreEntitySet="SERVICE">
+          <ScalarProperty Name="NUM_SERVICE" ColumnName="NUM_SERVICE" />
+          <ScalarProperty Name="LIBELLE_SERVICE" ColumnName="LIBELLE_SERVICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRACEINTERVENTION">
+      <EntityTypeMapping TypeName="BDD_MECENATModel1.TRACEINTERVENTION">
+        <MappingFragment StoreEntitySet="TRACEINTERVENTION">
+          <ScalarProperty Name="NUM_INTERVENTION" ColumnName="NUM_INTERVENTION" />
+          <ScalarProperty Name="NUM_MECENAT" ColumnName="NUM_MECENAT" />
+          <ScalarProperty Name="NUM_ASSOCIATION" ColumnName="NUM_ASSOCIATION" />
+          <ScalarProperty Name="NUM_CONTRAT" ColumnName="NUM_CONTRAT" />
+          <ScalarProperty Name="NUM_UTILISATEUR" ColumnName="NUM_UTILISATEUR" />
+          <ScalarProperty Name="OPERATION_REALISEE" ColumnName="OPERATION_REALISEE" />
+          <ScalarProperty Name="DATE_INTERVENTION" ColumnName="DATE_INTERVENTION" />
+          <ScalarProperty Name="HEURE_INTERVENTION" ColumnName="HEURE_INTERVENTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UTILISATEUR">
+      <EntityTypeMapping TypeName="BDD_MECENATModel1.UTILISATEUR">
+        <MappingFragment StoreEntitySet="UTILISATEUR">
+          <ScalarProperty Name="NUM_UTILISATEUR" ColumnName="NUM_UTILISATEUR" />
+          <ScalarProperty Name="NUM_SERVICE" ColumnName="NUM_SERVICE" />
+          <ScalarProperty Name="NOM_UTILISATEUR" ColumnName="NOM_UTILISATEUR" />
+          <ScalarProperty Name="PRENOM_UTILISATEUR" ColumnName="PRENOM_UTILISATEUR" />
+          <ScalarProperty Name="ROLE_UTILISATEUR" ColumnName="ROLE_UTILISATEUR" />
+          <ScalarProperty Name="LOGIN_UTILISATEUR" ColumnName="LOGIN_UTILISATEUR" />
+          <ScalarProperty Name="MDP_UTILISATEUR" ColumnName="MDP_UTILISATEUR" />
+          <ScalarProperty Name="DATE_DERNIERE_MODIF_MDP" ColumnName="DATE_DERNIERE_MODIF_MDP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

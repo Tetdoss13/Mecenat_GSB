@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDD_MECENATModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ASSOCIATION">
+    <Key>
+      <PropertyRef Name="NUM_ASSOCIATION" />
+    </Key>
+    <Property Name="NUM_ASSOCIATION" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NUM_PAYS" Type="Int16" Nullable="false" />
+    <Property Name="NUM_MISSION" Type="Int16" Nullable="false" />
+    <Property Name="NOM_ASSOCIATION" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="NOM_RESPONSABLE_ASSOCIATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MISSION" Relationship="Self.FK_ASSOCIATION_MISSION" FromRole="ASSOCIATION" ToRole="MISSION" />
+    <NavigationProperty Name="PAYS" Relationship="Self.FK_ASSOCIATION_PAYS" FromRole="ASSOCIATION" ToRole="PAYS" />
+    <NavigationProperty Name="CONTRAT_D_AIDE" Relationship="Self.FK_CONTRAT_D_AIDE_ASSOCIATION" FromRole="ASSOCIATION" ToRole="CONTRAT_D_AIDE" />
+    <NavigationProperty Name="TRACEINTERVENTION" Relationship="Self.FK_TRACEINTERVENTION_ASSOCIATION" FromRole="ASSOCIATION" ToRole="TRACEINTERVENTION" />
+  </EntityType>
+  <EntityType Name="CONTRAT_D_AIDE">
+    <Key>
+      <PropertyRef Name="NUM_CONTRAT" />
+    </Key>
+    <Property Name="NUM_CONTRAT" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NUM_ASSOCIATION" Type="Int16" Nullable="false" />
+    <Property Name="NUM_MECENAT" Type="Int16" Nullable="false" />
+    <Property Name="BUDGET_PREVISIONNEL_CONTRAT" Type="Int32" />
+    <Property Name="BUDGET_REEL_CONTRAT" Type="Int32" />
+    <Property Name="DATE_CONTRAT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ASSOCIATION" Relationship="Self.FK_CONTRAT_D_AIDE_ASSOCIATION" FromRole="CONTRAT_D_AIDE" ToRole="ASSOCIATION" />
+    <NavigationProperty Name="MECENAT" Relationship="Self.FK_CONTRAT_D_AIDE_MECENAT" FromRole="CONTRAT_D_AIDE" ToRole="MECENAT" />
+    <NavigationProperty Name="TRACEINTERVENTION" Relationship="Self.FK_TRACEINTERVENTION_CONTRAT_D_AIDE" FromRole="CONTRAT_D_AIDE" ToRole="TRACEINTERVENTION" />
+  </EntityType>
+  <EntityType Name="MECENAT">
+    <Key>
+      <PropertyRef Name="NUM_MECENAT" />
+    </Key>
+    <Property Name="NUM_MECENAT" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NUM_PAYS" Type="Int16" Nullable="false" />
+    <Property Name="LIBELLE_MECENAT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_PROPOSITION" Type="DateTime" Precision="3" />
+    <Property Name="DATE_RETENUE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CONTRAT_D_AIDE" Relationship="Self.FK_CONTRAT_D_AIDE_MECENAT" FromRole="MECENAT" ToRole="CONTRAT_D_AIDE" />
+    <NavigationProperty Name="PAYS" Relationship="Self.FK_MECENAT_PAYS" FromRole="MECENAT" ToRole="PAYS" />
+    <NavigationProperty Name="TRACEINTERVENTION" Relationship="Self.FK_TRACEINTERVENTION_MECENAT" FromRole="MECENAT" ToRole="TRACEINTERVENTION" />
+  </EntityType>
+  <EntityType Name="MISSION">
+    <Key>
+      <PropertyRef Name="NUM_MISSION" />
+    </Key>
+    <Property Name="NUM_MISSION" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LIBELLE_MISSION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ASSOCIATION" Relationship="Self.FK_ASSOCIATION_MISSION" FromRole="MISSION" ToRole="ASSOCIATION" />
+  </EntityType>
+  <EntityType Name="PAYS">
+    <Key>
+      <PropertyRef Name="NUM_PAYS" />
+    </Key>
+    <Property Name="NUM_PAYS" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOM_PAYS" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ASSOCIATION" Relationship="Self.FK_ASSOCIATION_PAYS" FromRole="PAYS" ToRole="ASSOCIATION" />
+    <NavigationProperty Name="MECENAT" Relationship="Self.FK_MECENAT_PAYS" FromRole="PAYS" ToRole="MECENAT" />
+  </EntityType>
+  <EntityType Name="SERVICE">
+    <Key>
+      <PropertyRef Name="NUM_SERVICE" />
+    </Key>
+    <Property Name="NUM_SERVICE" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LIBELLE_SERVICE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UTILISATEUR" Relationship="Self.FK_UTILISATEUR_SERVICE" FromRole="SERVICE" ToRole="UTILISATEUR" />
+  </EntityType>
+  <EntityType Name="TRACEINTERVENTION">
+    <Key>
+      <PropertyRef Name="NUM_INTERVENTION" />
+    </Key>
+    <Property Name="NUM_INTERVENTION" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NUM_MECENAT" Type="Int16" />
+    <Property Name="NUM_ASSOCIATION" Type="Int16" />
+    <Property Name="NUM_CONTRAT" Type="Int16" />
+    <Property Name="NUM_UTILISATEUR" Type="Int16" Nullable="false" />
+    <Property Name="OPERATION_REALISEE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_INTERVENTION" Type="DateTime" Precision="3" />
+    <Property Name="HEURE_INTERVENTION" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ASSOCIATION" Relationship="Self.FK_TRACEINTERVENTION_ASSOCIATION" FromRole="TRACEINTERVENTION" ToRole="ASSOCIATION" />
+    <NavigationProperty Name="CONTRAT_D_AIDE" Relationship="Self.FK_TRACEINTERVENTION_CONTRAT_D_AIDE" FromRole="TRACEINTERVENTION" ToRole="CONTRAT_D_AIDE" />
+    <NavigationProperty Name="MECENAT" Relationship="Self.FK_TRACEINTERVENTION_MECENAT" FromRole="TRACEINTERVENTION" ToRole="MECENAT" />
+    <NavigationProperty Name="UTILISATEUR" Relationship="Self.FK_TRACEINTERVENTION_UTILISATEUR" FromRole="TRACEINTERVENTION" ToRole="UTILISATEUR" />
+  </EntityType>
+  <EntityType Name="UTILISATEUR">
+    <Key>
+      <PropertyRef Name="NUM_UTILISATEUR" />
+    </Key>
+    <Property Name="NUM_UTILISATEUR" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NUM_SERVICE" Type="Int16" Nullable="false" />
+    <Property Name="NOM_UTILISATEUR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="PRENOM_UTILISATEUR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ROLE_UTILISATEUR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="LOGIN_UTILISATEUR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MDP_UTILISATEUR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_DERNIERE_MODIF_MDP" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SERVICE" Relationship="Self.FK_UTILISATEUR_SERVICE" FromRole="UTILISATEUR" ToRole="SERVICE" />
+    <NavigationProperty Name="TRACEINTERVENTION" Relationship="Self.FK_TRACEINTERVENTION_UTILISATEUR" FromRole="UTILISATEUR" ToRole="TRACEINTERVENTION" />
+  </EntityType>
+  <Association Name="FK_ASSOCIATION_MISSION">
+    <End Role="MISSION" Type="Self.MISSION" Multiplicity="1" />
+    <End Role="ASSOCIATION" Type="Self.ASSOCIATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MISSION">
+        <PropertyRef Name="NUM_MISSION" />
+      </Principal>
+      <Dependent Role="ASSOCIATION">
+        <PropertyRef Name="NUM_MISSION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ASSOCIATION_PAYS">
+    <End Role="PAYS" Type="Self.PAYS" Multiplicity="1" />
+    <End Role="ASSOCIATION" Type="Self.ASSOCIATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYS">
+        <PropertyRef Name="NUM_PAYS" />
+      </Principal>
+      <Dependent Role="ASSOCIATION">
+        <PropertyRef Name="NUM_PAYS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRAT_D_AIDE_ASSOCIATION">
+    <End Role="ASSOCIATION" Type="Self.ASSOCIATION" Multiplicity="1" />
+    <End Role="CONTRAT_D_AIDE" Type="Self.CONTRAT_D_AIDE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASSOCIATION">
+        <PropertyRef Name="NUM_ASSOCIATION" />
+      </Principal>
+      <Dependent Role="CONTRAT_D_AIDE">
+        <PropertyRef Name="NUM_ASSOCIATION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACEINTERVENTION_ASSOCIATION">
+    <End Role="ASSOCIATION" Type="Self.ASSOCIATION" Multiplicity="0..1" />
+    <End Role="TRACEINTERVENTION" Type="Self.TRACEINTERVENTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASSOCIATION">
+        <PropertyRef Name="NUM_ASSOCIATION" />
+      </Principal>
+      <Dependent Role="TRACEINTERVENTION">
+        <PropertyRef Name="NUM_ASSOCIATION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRAT_D_AIDE_MECENAT">
+    <End Role="MECENAT" Type="Self.MECENAT" Multiplicity="1" />
+    <End Role="CONTRAT_D_AIDE" Type="Self.CONTRAT_D_AIDE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MECENAT">
+        <PropertyRef Name="NUM_MECENAT" />
+      </Principal>
+      <Dependent Role="CONTRAT_D_AIDE">
+        <PropertyRef Name="NUM_MECENAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACEINTERVENTION_CONTRAT_D_AIDE">
+    <End Role="CONTRAT_D_AIDE" Type="Self.CONTRAT_D_AIDE" Multiplicity="0..1" />
+    <End Role="TRACEINTERVENTION" Type="Self.TRACEINTERVENTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRAT_D_AIDE">
+        <PropertyRef Name="NUM_CONTRAT" />
+      </Principal>
+      <Dependent Role="TRACEINTERVENTION">
+        <PropertyRef Name="NUM_CONTRAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MECENAT_PAYS">
+    <End Role="PAYS" Type="Self.PAYS" Multiplicity="1" />
+    <End Role="MECENAT" Type="Self.MECENAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYS">
+        <PropertyRef Name="NUM_PAYS" />
+      </Principal>
+      <Dependent Role="MECENAT">
+        <PropertyRef Name="NUM_PAYS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACEINTERVENTION_MECENAT">
+    <End Role="MECENAT" Type="Self.MECENAT" Multiplicity="0..1" />
+    <End Role="TRACEINTERVENTION" Type="Self.TRACEINTERVENTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MECENAT">
+        <PropertyRef Name="NUM_MECENAT" />
+      </Principal>
+      <Dependent Role="TRACEINTERVENTION">
+        <PropertyRef Name="NUM_MECENAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UTILISATEUR_SERVICE">
+    <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+    <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICE">
+        <PropertyRef Name="NUM_SERVICE" />
+      </Principal>
+      <Dependent Role="UTILISATEUR">
+        <PropertyRef Name="NUM_SERVICE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACEINTERVENTION_UTILISATEUR">
+    <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="1" />
+    <End Role="TRACEINTERVENTION" Type="Self.TRACEINTERVENTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UTILISATEUR">
+        <PropertyRef Name="NUM_UTILISATEUR" />
+      </Principal>
+      <Dependent Role="TRACEINTERVENTION">
+        <PropertyRef Name="NUM_UTILISATEUR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDD_MECENATEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ASSOCIATION" EntityType="Self.ASSOCIATION" />
+    <EntitySet Name="CONTRAT_D_AIDE" EntityType="Self.CONTRAT_D_AIDE" />
+    <EntitySet Name="MECENAT" EntityType="Self.MECENAT" />
+    <EntitySet Name="MISSION" EntityType="Self.MISSION" />
+    <EntitySet Name="PAYS" EntityType="Self.PAYS" />
+    <EntitySet Name="SERVICE" EntityType="Self.SERVICE" />
+    <EntitySet Name="TRACEINTERVENTION" EntityType="Self.TRACEINTERVENTION" />
+    <EntitySet Name="UTILISATEUR" EntityType="Self.UTILISATEUR" />
+    <AssociationSet Name="FK_ASSOCIATION_MISSION" Association="Self.FK_ASSOCIATION_MISSION">
+      <End Role="MISSION" EntitySet="MISSION" />
+      <End Role="ASSOCIATION" EntitySet="ASSOCIATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ASSOCIATION_PAYS" Association="Self.FK_ASSOCIATION_PAYS">
+      <End Role="PAYS" EntitySet="PAYS" />
+      <End Role="ASSOCIATION" EntitySet="ASSOCIATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRAT_D_AIDE_ASSOCIATION" Association="Self.FK_CONTRAT_D_AIDE_ASSOCIATION">
+      <End Role="ASSOCIATION" EntitySet="ASSOCIATION" />
+      <End Role="CONTRAT_D_AIDE" EntitySet="CONTRAT_D_AIDE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACEINTERVENTION_ASSOCIATION" Association="Self.FK_TRACEINTERVENTION_ASSOCIATION">
+      <End Role="ASSOCIATION" EntitySet="ASSOCIATION" />
+      <End Role="TRACEINTERVENTION" EntitySet="TRACEINTERVENTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRAT_D_AIDE_MECENAT" Association="Self.FK_CONTRAT_D_AIDE_MECENAT">
+      <End Role="MECENAT" EntitySet="MECENAT" />
+      <End Role="CONTRAT_D_AIDE" EntitySet="CONTRAT_D_AIDE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACEINTERVENTION_CONTRAT_D_AIDE" Association="Self.FK_TRACEINTERVENTION_CONTRAT_D_AIDE">
+      <End Role="CONTRAT_D_AIDE" EntitySet="CONTRAT_D_AIDE" />
+      <End Role="TRACEINTERVENTION" EntitySet="TRACEINTERVENTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MECENAT_PAYS" Association="Self.FK_MECENAT_PAYS">
+      <End Role="PAYS" EntitySet="PAYS" />
+      <End Role="MECENAT" EntitySet="MECENAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACEINTERVENTION_MECENAT" Association="Self.FK_TRACEINTERVENTION_MECENAT">
+      <End Role="MECENAT" EntitySet="MECENAT" />
+      <End Role="TRACEINTERVENTION" EntitySet="TRACEINTERVENTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UTILISATEUR_SERVICE" Association="Self.FK_UTILISATEUR_SERVICE">
+      <End Role="SERVICE" EntitySet="SERVICE" />
+      <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACEINTERVENTION_UTILISATEUR" Association="Self.FK_TRACEINTERVENTION_UTILISATEUR">
+      <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+      <End Role="TRACEINTERVENTION" EntitySet="TRACEINTERVENTION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
