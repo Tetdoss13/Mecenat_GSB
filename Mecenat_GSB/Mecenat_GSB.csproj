@@ -61,22 +61,6 @@
     <Compile Include="CONTRAT_D_AIDE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="GSBEntities.cs" />
-    <Compile Include="mdlMecenat.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>mdlMecenat.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="mdlMecenat.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>mdlMecenat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="mdlMecenat.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>mdlMecenat.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MECENAT.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -148,13 +132,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="mdlMecenat.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>mdlMecenat.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="mdlMecenat.edmx.diagram">
-      <DependentUpon>mdlMecenat.edmx</DependentUpon>
-    </None>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -177,20 +154,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mdlMecenat.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>mdlMecenat.Context.cs</LastGenOutput>
-      <DependentUpon>mdlMecenat.edmx</DependentUpon>
-    </Content>
-    <Content Include="mdlMecenat.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>mdlMecenat.edmx</DependentUpon>
-      <LastGenOutput>mdlMecenat.cs</LastGenOutput>
-    </Content>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
